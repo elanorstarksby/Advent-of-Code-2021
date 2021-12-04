@@ -35,7 +35,7 @@ def bin_list_to_int(bin_list):
 
 
 def most_common_at(values, place):
-    print(values, place)
+    # print(values, place)
     digits = []
     for each in values:
         digits.append(each[place])
@@ -47,7 +47,7 @@ def most_common_at(values, place):
             count1s += 1
         else:
             count0s += 1
-    print(count0s, count1s)
+    # print(count0s, count1s)
     return -1 if count1s == count0s else 1 if count1s > count0s else 0
 
 
@@ -79,24 +79,24 @@ def matching(values, most_common):
     return values[0]
 
 
-def match_digits(values2,mostleast):
-    current_values = []
-    for digit_place in range(len(values2[0])):
-        if digit_place > 5:
-            print(count_0s_and_1s(values2))
-        keep_values = find_gamma(count_0s_and_1s(values2))[mostleast]
-        if digit_place > 5:
-            print(keep_values)
-        for value in values2:
-            if value[digit_place] == keep_values[digit_place]:
-                current_values.append(value)
-        values2, current_values = current_values, []
-        if digit_place > 5:
-            print(values2)
-        # print(keep_values)
-        if len(values2) == 1:
-            break
-    return values2[-1]
+# def match_digits(values2,mostleast):
+#     current_values = []
+#     for digit_place in range(len(values2[0])):
+#         if digit_place > 5:
+#             print(count_0s_and_1s(values2))
+#         keep_values = find_gamma(count_0s_and_1s(values2))[mostleast]
+#         if digit_place > 5:
+#             print(keep_values)
+#         for value in values2:
+#             if value[digit_place] == keep_values[digit_place]:
+#                 current_values.append(value)
+#         values2, current_values = current_values, []
+#         if digit_place > 5:
+#             print(values2)
+#         # print(keep_values)
+#         if len(values2) == 1:
+#             break
+#     return values2[-1]
 
 
 if __name__ == '__main__':
