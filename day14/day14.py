@@ -54,11 +54,6 @@ def step_counts(polymer_counts, transitions, counts):
                 counts[inserted] += polymer_counts[pair]
             else:
                 counts[inserted] = polymer_counts[pair]
-        # else:
-        #     if pair in new_polymer:
-        #         new_polymer[pair] += polymer_counts[pair]
-        #     else:
-        #         new_polymer[pair] = polymer_counts[pair]
     return new_polymer
 
 
@@ -70,24 +65,6 @@ def quantities(polymer):
         else:
             counts[each] = 1
     return counts
-
-
-# def quantities_from_pairs(polymer_pairs):
-#     counts = {}
-#     for pair, count in polymer_pairs.items():
-#         p0 = pair[0]
-#         p1 = pair[1]
-#         if p0 in counts:
-#             counts[p0] += count
-#         else:
-#             counts[p0] = count
-#         if p1 in counts:
-#             counts[p1] += count
-#         else:
-#             counts[p1] = count
-#     for c in counts:
-#         counts[c] /= 2
-#     return counts
 
 
 def big_sub_small(counts):
@@ -111,14 +88,11 @@ def part1(start, transitions):
 
 def part2(start, transitions):
     polymer = pair_counts([c for c in start])
-    # first, last = polymer[0], polymer[-1]
     counts = quantities(start)
     print("!", counts)
     for i in range(40):
         polymer = step_counts(polymer, transitions, counts)
     print(big_sub_small(counts))
-
-    # print(big_sub_small(polymer))
 
 
 def main():
