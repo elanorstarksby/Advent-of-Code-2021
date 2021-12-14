@@ -13,7 +13,7 @@ def read_file():
     return start, transitions
 
 
-def step(polymer, transitions):
+def step(polymer, transitions):  # for part 1
     place = 0
     while place < len(polymer) - 1:
         pair = polymer[place] + polymer[place + 1]
@@ -24,7 +24,7 @@ def step(polymer, transitions):
     return polymer
 
 
-def pair_counts(polymer):
+def pair_counts(polymer):  # turns list/string into dict count of pairs for part 2
     pairs = {}
     for place in range(len(polymer) - 1):
         pair = polymer[place] + polymer[place + 1]
@@ -35,7 +35,7 @@ def pair_counts(polymer):
     return pairs
 
 
-def step_counts(polymer_counts, transitions, counts):
+def step_counts(polymer_counts, transitions, counts):  # for part 2
     new_polymer = {}
     for pair in polymer_counts:
         if pair in transitions:
@@ -57,7 +57,7 @@ def step_counts(polymer_counts, transitions, counts):
     return new_polymer
 
 
-def quantities(polymer):
+def quantities(polymer):  # for part 1 - counts frequency in list/string
     counts = {}
     for each in polymer:
         if each in counts:
@@ -67,7 +67,7 @@ def quantities(polymer):
     return counts
 
 
-def big_sub_small(counts):
+def big_sub_small(counts):  # finds most frequent and last frequent and subtracts
     letters = [l for l in counts.keys()]
     biggest = 0
     smallest = counts[letters[0]]
@@ -89,7 +89,6 @@ def part1(start, transitions):
 def part2(start, transitions):
     polymer = pair_counts([c for c in start])
     counts = quantities(start)
-    print("!", counts)
     for i in range(40):
         polymer = step_counts(polymer, transitions, counts)
     print(big_sub_small(counts))
